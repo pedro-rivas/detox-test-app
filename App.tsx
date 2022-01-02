@@ -6,6 +6,7 @@ import {
   Button,
   Text,
   TextInput,
+  View,
 } from 'react-native';
 
 import {multiply} from './src/actions/';
@@ -29,13 +30,20 @@ export default function App() {
         contentInsetAdjustmentBehavior="automatic"
         style={styles.scrollView}>
         <Text>Multiply something</Text>
-        <TextInput
-          testID="numericInput"
-          style={styles.input}
-          onChangeText={onChange}
-          placeholder="Type a number"
-          keyboardType="numeric"
-        />
+        <View style={styles.inputGrap}>
+          <TextInput
+            testID="numericInput"
+            style={styles.input}
+            onChangeText={onChange}
+            placeholder="Type a number"
+            keyboardType="numeric"
+          />
+          <Button
+            testID="dissmisButton"
+            title="-"
+            disabled
+          />
+        </View>
         <Button
           testID="multiplyButton"
           title="Multiply"
@@ -62,11 +70,16 @@ const styles = StyleSheet.create({
   scrollView: {
     padding: 20,
   },
+  inputGrap:{
+    flexDirection:'row',
+    justifyContent:'space-between', 
+  },
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
+    width:'80%'
   },
   result: {
     paddingVertical: 10,

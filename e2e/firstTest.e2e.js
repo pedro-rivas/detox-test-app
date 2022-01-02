@@ -6,6 +6,7 @@ describe('Example', () => {
 
   const input = element(by.id('numericInput'));
   const button = element(by.id('multiplyButton'));
+  const dismiss = element(by.id('dissmisButton'));
   const scroll = element(by.id('scrollview'))
 
   it('should have the initial screen', async () => {
@@ -13,10 +14,11 @@ describe('Example', () => {
   });
 
   it('should type a number', async () => {
-    await input.typeText('1000\n');
+    await input.typeText('1000');
   });
 
   it('should multiply a number', async () => {
+    await dismiss.tap();
     await button.tap();
     await expect(element(by.text('5000'))).toBeVisible();
   });
@@ -24,7 +26,8 @@ describe('Example', () => {
   it('should multiply multiple numbers', async() => {
     for (let i = 0; i < 23; i++) {
       await input.clearText();
-      await input.typeText(`${i}\n`);
+      await input.typeText(`${i}`);
+      await dismiss.tap();
       await button.tap();
       await waitFor(element(by.text(`${i}`))).toExist().withTimeout(300);
     }
@@ -32,7 +35,7 @@ describe('Example', () => {
 
   it('should scroll and show last item', async() => {
    await scroll.scrollTo("bottom");
-   await expect(element(by.text('120'))).toBeVisible();
+   await expect(element(by.text('110'))).toBeVisible();
   });
 
   it('should scroll to top', async() => {
