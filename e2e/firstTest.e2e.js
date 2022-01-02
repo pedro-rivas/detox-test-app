@@ -13,20 +13,18 @@ describe('Example', () => {
   });
 
   it('should type a number', async () => {
-    await input.typeText('1000');
+    await input.typeText('1000\n');
   });
 
   it('should multiply a number', async () => {
     await button.tap();
-    //await button.tap();
     await expect(element(by.text('5000'))).toBeVisible();
   });
 
   it('should multiply multiple numbers', async() => {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 23; i++) {
       await input.clearText();
-      await input.typeText(`${i}`);
-      //await button.tap();
+      await input.typeText(`${i}\n`);
       await button.tap();
       await waitFor(element(by.text(`${i}`))).toExist().withTimeout(300);
     }
