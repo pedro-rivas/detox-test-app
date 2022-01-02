@@ -82,6 +82,7 @@ const styles = StyleSheet.create({
     width:'80%'
   },
   result: {
-    paddingVertical: 10,
+    fontSize:20,
+    paddingVertical: 12,
   },
 });
