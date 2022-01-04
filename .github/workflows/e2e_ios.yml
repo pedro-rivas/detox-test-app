@@ -1,36 +1,37 @@
-name: IOS test
+name: E2E (iOS)
 
 on: [push]
 
 jobs:
   build:
-    name: Test
+    name: E2E (iOS)
     runs-on: macOS-latest
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v1
 
-      # Set up environment
       - name: Set up Node
         run: |
           npm install -g react-native-cli
           npm install -g detox-cli
           npm install -g yarn
+
       - name: Install Detox
         run: |
           brew tap wix/brew
           brew install applesimutils
-      - name: Install modules
+
+      - name: Install Yarn Dependencies
         run: yarn install
 
-      # run unit tests
       - name: Unit Tests
         run: yarn test
 
-      # run E2E tests
       - name: Install Pod Dependencies
         run: cd ./ios && pod install && cd ..
-      - name: Detox Build
+
+      - name: Run Detox Build
         run: yarn build:ios
-      - name: Detox Test
+
+      - name: Run Detox Test
         run: yarn e2e:ios
