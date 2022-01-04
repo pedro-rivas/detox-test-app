@@ -1,7 +1,7 @@
 
 describe('Example', () => {
   beforeAll(async () => {
-    await device.launchApp({ newInstance: true });
+    await device.launchApp();
   });
 
   const input = element(by.id('numericInput'));

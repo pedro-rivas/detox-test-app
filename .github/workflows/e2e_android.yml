@@ -31,7 +31,7 @@ jobs:
         run: yarn test
 
       - name: Detox Build
-        run: yarn build:android
+        run: yarn build:android-debug
 
       - name: Run Detox Test(s)
         uses: reactivecircus/android-emulator-runner@v2
