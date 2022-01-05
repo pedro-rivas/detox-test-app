@@ -1,4 +1,4 @@
-import React, {useState,} from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -38,11 +38,7 @@ export default function App() {
             placeholder="Type a number"
             keyboardType="numeric"
           />
-          <Button
-            testID="dissmisButton"
-            title="-"
-            disabled
-          />
+          <Button testID="dissmisButton" title="-" disabled />
         </View>
         <Button
           testID="multiplyButton"
@@ -70,19 +66,19 @@ const styles = StyleSheet.create({
   scrollView: {
     padding: 20,
   },
-  inputGrap:{
-    flexDirection:'row',
-    justifyContent:'space-between', 
+  inputGrap: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   input: {
     height: 40,
     margin: 12,
     borderWidth: 1,
     padding: 10,
-    width:'80%'
+    width: '80%',
   },
   result: {
-    fontSize:20,
+    fontSize: 20,
     paddingVertical: 12,
   },
 });
